@@ -11,7 +11,7 @@ class HomePage extends React.Component {
             <h5 className="header col s12 light">A place to check to store inventory</h5>
           </div>
           <div className="row center">
-            <Link to="/" className="waves-effect waves-light btn-large green">View Stores</Link>
+            <Link to="/stores" className="waves-effect waves-light btn-large green">View Stores</Link>
           </div>
         </div>
       </div>
