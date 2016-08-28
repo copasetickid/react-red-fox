@@ -1,4 +1,9 @@
 import React, { PropTypes } from 'react';
+import  { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { fetchShops } from '../../actions/shopAction';
+import Preloader from '../shared/Preloader';
+import StoreCard from './StoreCard';
 
 class StoresPage extends React.Component {
 
@@ -7,12 +12,37 @@ class StoresPage extends React.Component {
   }
 
   render() {
+    const { shops } = this.props;
+    
     return (
       <div className="stores-container">
-        STORES!!
+
+        <div className="row">
+          { shops.map(shop =>
+            <StoreCard key={shop.id} shop={shop} />
+          )}
+        </div>
+
       </div>
     );
   }
 }
 
-export default StoresPage;
+StoresPage.propTypes = {
+  actions: PropTypes.object.isRequired,
+  shops: PropTypes.array.isRequired
+};
+
+function mapStateToProps(state, ownProps) {
+  return {
+    shops: state.shops
+  };
+}
+
+function mapDispatchToProps(dispatch, ownProps) {
+  return {
+      actions: dispatch(fetchShops())
+  };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(StoresPage);
