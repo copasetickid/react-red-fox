@@ -1,5 +1,7 @@
 import React, { PropTypes } from 'react';
+import { connect } from 'react-redux';
 import Header from './shared/Header';
+import Preloader from './shared/Preloader';
 
 class App extends React.Component {
   render() {
@@ -15,5 +17,7 @@ class App extends React.Component {
 App.propTypes = {
   children: PropTypes.object.isRequired
 };
+
+
 
 export default App;
