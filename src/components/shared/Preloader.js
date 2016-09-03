@@ -7,7 +7,8 @@ class Preloader extends React.Component {
 
   render() {
     return (
-      <div className="preloader-wrapper big active">
+      <div className="col s12 m4 center">
+        <div className="preloader-wrapper big active">
         <div className="spinner-layer spinner-blue-only">
           <div className="circle-clipper left">
             <div className="circle"></div>
@@ -18,6 +19,7 @@ class Preloader extends React.Component {
           </div>
         </div>
       </div>
+    </div>
     );
   }
 }

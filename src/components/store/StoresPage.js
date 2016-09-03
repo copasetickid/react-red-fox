@@ -18,16 +18,17 @@ class StoresPage extends React.Component {
     browserHistory.push('newstore');
   }
   render() {
-    const { shops } = this.props;
+    const { isFetching, shops } = this.props;
+    const isEmpty = shops.length === 0;
 
     return (
       <div className="container stores-container">
-
-        <div className="row">
-          { shops.map(shop =>
-            <StoreCard key={shop.id} shop={shop} />
-          )}
-        </div>
+        {
+          isEmpty ?  <Preloader/>
+          : <div className="row">
+            {shops.map(shop => <StoreCard key={shop.id} shop={shop} />)}
+            </div>
+        }
         <a className="btn-floating btn-large btn-add waves-effect waves-light red" onClick={this.redirectToNewStorePage}>
             <i className="material-icons">add</i>
         </a>
