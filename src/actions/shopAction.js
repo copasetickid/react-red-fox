@@ -1,5 +1,7 @@
 import * as types from './actionTypes';
+import polyfill from 'es6-promise';
 import fetch from 'isomorphic-fetch';
+
 
 var StoreAPIEndpoint = 'http://red-fox.herokuapp.com/api/v1/stores';
 
