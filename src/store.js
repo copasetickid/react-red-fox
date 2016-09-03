@@ -9,7 +9,7 @@ import rootReducer from './reducers/index';
 //create an object for the default data
 const defaultState = {
   shops: [],
-  
+
 };
 
 const enchancers = compose(
@@ -17,7 +17,7 @@ const enchancers = compose(
    window.devToolsExtension ? window.devToolsExtension() : f => f
 )
 
-const store = createStore(rootReducer, defaultState, enchancers);
+const store = createStore(rootReducer, enchancers);
 
 export const history = syncHistoryWithStore(browserHistory, store);
 
