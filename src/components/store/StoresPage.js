@@ -38,12 +38,15 @@ class StoresPage extends React.Component {
 
 StoresPage.propTypes = {
   actions: PropTypes.object.isRequired,
+  isFetching: PropTypes.bool.isRequired,
   shops: PropTypes.array.isRequired
 };
 
 function mapStateToProps(state, ownProps) {
+  const { shops } = state;
   return {
-    shops: state.shops
+    isFetching: shops.isFetching,
+    shops: shops.items
   };
 }
 

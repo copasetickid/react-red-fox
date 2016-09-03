@@ -19,10 +19,17 @@ export function createShopSuccess(shop) {
 
 export function fetchShops() {
   return function(dispatch) {
-    //dispatch(requestShops());
+    dispatch(requestShops());
     return fetch(StoreAPIEndpoint)
-      .then(response => response.json())
-      .then(json => dispatch(receiveShops(json))
-    );
+      .then(function(response){
+        if (response.status >= 400) {
+           throw new Error("Bad response from server");
+       }
+       return response.json();
+      })
+      .then(json => dispatch(receiveShops(json)))
+      .catch(function(error){
+        alert(error);
+    });
   };
 }
